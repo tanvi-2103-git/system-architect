@@ -17,7 +17,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <p className="text-sm uppercase tracking-[0.3em] text-text-tertiary mb-6">
-            Full Stack Developer
+            MERN Stack Developer
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-6">
             <span className="text-foreground">Tanvi</span>
