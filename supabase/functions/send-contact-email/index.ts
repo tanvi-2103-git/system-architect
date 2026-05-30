@@ -61,9 +61,12 @@ Deno.serve(async (req) => {
   }
 
   try {
+    // Prefer Cloudflare-injected IP (cannot be spoofed by client).
+    // Fall back to x-forwarded-for only when cf-connecting-ip is absent.
     const ip =
-      req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
       req.headers.get("cf-connecting-ip") ||
+      req.headers.get("x-real-ip") ||
+      req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
       "unknown";
 
     if (!rateLimit(ip)) {
